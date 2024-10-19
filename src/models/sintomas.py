@@ -1,0 +1,4 @@
+print("sintomas")
+
+nombre = ""
+descripcion = ""
