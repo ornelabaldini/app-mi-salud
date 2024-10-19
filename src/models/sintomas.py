@@ -1,4 +1,0 @@
-print("sintomas")
-
-nombre = ""
-descripcion = ""

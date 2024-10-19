@@ -1,1 +1,0 @@
-print("funciones_auxiliares")

@@ -5,19 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="47274372-fbe6-49e6-9b6e-e7739719f988" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/medicina.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/paciente.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/registro_medicamento.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/registro_sintoma.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/2/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/1/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modulo1/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modulo1/clase1.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modulo2/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modulo2/clase2.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/sintomas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_modulo1.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_modulo2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/medicina.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/paciente.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/registro_medicamento.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/registro_sintoma.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/sintomas.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/untils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/1/clase1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/untils/funciones_auxiliares.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +51,7 @@
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/ornela/PycharmProjects/app-mi-salud/src/models/__init__.py",
+    "last_opened_file_path": "/home/ornela/PycharmProjects/app-mi-salud",
     "settings.editor.selected.configurable": "configurable.group.project"
   }
 }]]></component>
