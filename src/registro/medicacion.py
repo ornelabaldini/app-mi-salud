@@ -1,8 +1,8 @@
 from .registro import Registro
 
 class Medicacion(Registro):
-    def _init_(self, descripcion, dosis, fecha_hora=None):
-        super()._init_(descripcion, fecha_hora)
+    def __init__(self, descripcion, dosis, fecha_hora):
+        super().__init__(descripcion, fecha_hora)  # Llama al constructor de Registro
         self.dosis = dosis
 
     def _str_(self):

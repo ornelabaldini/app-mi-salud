@@ -1,29 +1,28 @@
 import tkinter as tk
 from tkinter import messagebox
-from paciente import Paciente
-from registro.registro import Registro
-from registro.sintoma import Sintoma
-from registro.medicacion import Medicacion
-from utils.fecha_hora import FechaHora
+from src.paciente import Paciente
+from src.registro.sintoma import Sintoma
+from src.registro.medicacion import Medicacion
+from src.utils.fecha_hora import FechaHora
 
 class Aplicacion(tk.Tk):
         def __init__(self):
             super().__init__()
-            self.title("Registro de Pacientes")
-            self.geometry("400x300")
+            self.title("                      Registro en Mi Salud")
+            self.geometry("900x700")
 
             self.pacientes = {}
 
             self.etiqueta_titulo = tk.Label(self, text="Registro de Pacientes")
             self.etiqueta_titulo.pack()
 
-            self.etiqueta_nombre_paciente = tk.Label(self, text="Nombre del paciente:")
+            self.etiqueta_nombre_paciente = tk.Label(self, text="Nombre:")
             self.etiqueta_nombre_paciente.pack()
 
             self.entrada_nombre_paciente = tk.Entry(self)
             self.entrada_nombre_paciente.pack()
 
-            self.etiqueta_edad_paciente = tk.Label(self, text="Edad del paciente:")
+            self.etiqueta_edad_paciente = tk.Label(self, text="Edad:")
             self.etiqueta_edad_paciente.pack()
 
             self.entrada_edad_paciente = tk.Entry(self)
@@ -73,20 +72,27 @@ class Aplicacion(tk.Tk):
             self.boton_ver_registros = tk.Button(self, text="Ver registros", command=self.ver_registros)
             self.boton_ver_registros.pack()
 
+            self.boton_ver_registro_pacientes = tk.Button(self, text="Ver registro de pacientes",
+                                                          command=self.ver_registro_pacientes)
+            self.boton_ver_registro_pacientes.pack()
+            self.texto_registros = tk.Text(self, width=50, height=10)
+            self.texto_registros.pack()
+
         def ingresar_paciente(self):
             nombre_paciente = self.entrada_nombre_paciente.get()
             edad_paciente = self.entrada_edad_paciente.get()
-
+            if nombre_paciente in self.pacientes:
+                messagebox.showerror("Error", "Paciente ya existe.")
+                return
             try:
                 edad_paciente = int(edad_paciente)
             except ValueError:
                 messagebox.showerror("Error", "La edad debe ser un número.")
                 return
-
             paciente = Paciente(nombre_paciente, edad_paciente)
             self.pacientes[nombre_paciente] = paciente
-
             messagebox.showinfo("Éxito", "Paciente ingresado con éxito.")
+
 
         def registrar_sintoma(self):
             nombre_paciente = self.entrada_nombre_paciente.get()
@@ -131,25 +137,43 @@ class Aplicacion(tk.Tk):
 
         def ver_registros(self):
             self.texto_registros.delete(1.0, tk.END)
-
             nombre_paciente = self.entrada_nombre_paciente.get()
-
             if nombre_paciente not in self.pacientes:
                 messagebox.showerror("Error", "Paciente no encontrado.")
                 return
-
             paciente = self.pacientes[nombre_paciente]
-
             self.texto_registros.insert(tk.END, f"Registro de {paciente.nombre}:\n")
+            for registro in paciente.registros:
+                if isinstance(registro, Sintoma):
+                    self.texto_registros.insert(tk.END,
+                                                f"Síntoma: {registro.descripcion}\nFecha y hora: {registro.fecha_hora}\n\n")
+                elif isinstance(registro, Medicacion):
+                    self.texto_registros.insert(tk.END,
+                                                f"Medicación: {registro.descripcion}\nDosis: {registro.dosis}\nFecha y hora: {registro.fecha_hora}\n\n")
 
-            for sintoma in paciente.sintomas:
-                self.texto_registros.insert(tk.END,
-                                            f"Síntoma: {sintoma.descripcion}\nFecha y hora: {sintoma.fecha_hora}\n\n")
+        def ver_registros_paciente(self):
+            nombre_paciente = self.entrada_nombre_paciente.get()
+            if nombre_paciente not in self.pacientes:
+                messagebox.showerror("Error", "Paciente no encontrado.")
+                return
+            paciente = self.pacientes[nombre_paciente]
+            paciente.ver_registros()
 
-            for medicacion in paciente.medicaciones:
-                self.texto_registros.insert(tk.END,
-                                            f"Medicación: {medicacion.descripcion}\nDosis: {medicacion.dosis}\nFecha y hora: {medicacion.fecha_hora}\n\n")
-
+        def ver_registro_pacientes(self):
+            ventana_registro = tk.Toplevel(self)
+            ventana_registro.title("Registro de pacientes")
+            texto_registro_pacientes = tk.Text(ventana_registro)
+            texto_registro_pacientes.pack(fill="both", expand=True)
+            for paciente in self.pacientes.values():
+                texto_registro_pacientes.insert(tk.END, f"Registro de {paciente.nombre}:\n")
+                paciente.ver_registros()
+                for registro in paciente.registros:
+                    if isinstance(registro, Sintoma):
+                        texto_registro_pacientes.insert(tk.END,
+                                                        f"Síntoma: {registro.descripcion}\nFecha y hora: {registro.fecha_hora}\n\n")
+                    elif isinstance(registro, Medicacion):
+                        texto_registro_pacientes.insert(tk.END,
+                                                        f"Medicación: {registro.descripcion}\nDosis: {registro.dosis}\nFecha y hora: {registro.fecha_hora}\n\n")
 
 if __name__ == "__main__":
     aplicacion = Aplicacion()
