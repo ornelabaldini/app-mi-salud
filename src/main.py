@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
-from src.paciente import Paciente
+from src.paciente.paciente import Paciente
 from src.registro.sintoma import Sintoma
 from src.registro.medicacion import Medicacion
 from src.utils.fecha_hora import FechaHora
@@ -77,6 +77,7 @@ class Aplicacion(tk.Tk):
             self.boton_ver_registro_pacientes.pack()
             self.texto_registros = tk.Text(self, width=50, height=10)
             self.texto_registros.pack()
+
 
         def ingresar_paciente(self):
             nombre_paciente = self.entrada_nombre_paciente.get()
@@ -174,6 +175,16 @@ class Aplicacion(tk.Tk):
                     elif isinstance(registro, Medicacion):
                         texto_registro_pacientes.insert(tk.END,
                                                         f"Medicación: {registro.descripcion}\nDosis: {registro.dosis}\nFecha y hora: {registro.fecha_hora}\n\n")
+
+        def crear_boton(self, texto, comando):
+            boton = tk.Button(self, text=texto, command=comando)
+            boton.config(bg="#008000", fg="#FFFFFF")
+            boton.pack()
+            return boton
+
+            self.boton_ingresar_paciente = self.crear_boton("Ingresar paciente", self.ingresar_paciente)
+            self.boton_registrar_sintoma = self.crear_boton("Registrar síntoma", self.registrar_sintoma)
+
 
 if __name__ == "__main__":
     aplicacion = Aplicacion()
