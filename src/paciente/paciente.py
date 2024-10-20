@@ -7,11 +7,16 @@ class Paciente:
         self.edad = edad
         self.registros = []
 
-    def registrar_sintoma(self, sintoma):
+    def registrar_sintoma(self, descripcion):
+        sintoma = Sintoma(descripcion)
         self.registros.append(sintoma)
 
-    def registrar_medicacion(self, medicacion):
+
+
+    def registrar_medicacion(self, descripcion, dosis):
+        medicacion = Medicacion(descripcion, dosis)
         self.registros.append(medicacion)
+
 
     def ver_registros(self):
         for registro in self.registros:

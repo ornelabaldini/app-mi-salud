@@ -5,18 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="47274372-fbe6-49e6-9b6e-e7739719f988" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/2/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/1/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/medicina.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/paciente.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/registro_medicamento.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/registro_sintoma.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/sintomas.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/untils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/1/clase1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/untils/funciones_auxiliares.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/1/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/1/clase1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/2/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/interfaz_grafica/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/interfaz_grafica/ventana_tkinter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/paciente/paciente.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/paciente/paciente.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pacientes/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pacientes/clase1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/registros/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/registros/clase2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/funciones_auxiliares.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,17 +43,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.__init__ (1).executor": "Run",
-    "Python.__init__.executor": "Run",
-    "Python.main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/ornela/PycharmProjects/app-mi-salud",
-    "settings.editor.selected.configurable": "configurable.group.project"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.__init__ (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.__init__.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/ornela/PycharmProjects/app-mi-salud&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.project&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/models" />
@@ -71,11 +70,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/models" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/models/__init__.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/__init__.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
