@@ -21,12 +21,14 @@ class Aplicacion(tk.Tk):
 
             self.entrada_nombre_paciente = tk.Entry(self)
             self.entrada_nombre_paciente.pack()
+            self.entrada_nombre_paciente.bind("<Return>", lambda event: self.entrada_edad_paciente.focus_set())
 
             self.etiqueta_edad_paciente = tk.Label(self, text="Edad:")
             self.etiqueta_edad_paciente.pack()
 
             self.entrada_edad_paciente = tk.Entry(self)
             self.entrada_edad_paciente.pack()
+            self.entrada_edad_paciente.bind("<Return>", lambda event: self.entrada_descripcion_sintoma.focus_set())
 
             self.boton_ingresar_paciente = tk.Button(self, text="Ingresar paciente", command=self.ingresar_paciente)
             self.boton_ingresar_paciente.pack()
@@ -36,12 +38,15 @@ class Aplicacion(tk.Tk):
 
             self.entrada_descripcion_sintoma = tk.Entry(self)
             self.entrada_descripcion_sintoma.pack()
+            self.entrada_descripcion_sintoma.bind("<Return>", lambda event: self.entrada_fecha_hora_sintoma.focus_set())
 
             self.etiqueta_fecha_hora_sintoma = tk.Label(self, text="Fecha y hora del síntoma (YYYY-MM-DD HH:MM):")
             self.etiqueta_fecha_hora_sintoma.pack()
 
             self.entrada_fecha_hora_sintoma = tk.Entry(self)
             self.entrada_fecha_hora_sintoma.pack()
+            self.entrada_fecha_hora_sintoma.bind("<Return>",
+                                                 lambda event: self.entrada_descripcion_medicacion.focus_set())
 
             self.boton_registrar_sintoma = tk.Button(self, text="Registrar síntoma", command=self.registrar_sintoma)
             self.boton_registrar_sintoma.pack()
@@ -51,12 +56,15 @@ class Aplicacion(tk.Tk):
 
             self.entrada_descripcion_medicacion = tk.Entry(self)
             self.entrada_descripcion_medicacion.pack()
+            self.entrada_descripcion_medicacion.bind("<Return>",
+                                                     lambda event: self.entrada_dosis_medicacion.focus_set())
 
             self.etiqueta_dosis_medicacion = tk.Label(self, text="Dosis de la medicación:")
             self.etiqueta_dosis_medicacion.pack()
 
             self.entrada_dosis_medicacion = tk.Entry(self)
             self.entrada_dosis_medicacion.pack()
+            self.entrada_dosis_medicacion.bind("<Return>", lambda event: self.entrada_fecha_hora_medicacion.focus_set())
 
             self.etiqueta_fecha_hora_medicacion = tk.Label(self,
                                                            text="Fecha y hora de la medicación (YYYY-MM-DD HH:MM:SS):")
@@ -75,7 +83,7 @@ class Aplicacion(tk.Tk):
             self.boton_ver_registro_pacientes = tk.Button(self, text="Ver registro de pacientes",
                                                           command=self.ver_registro_pacientes)
             self.boton_ver_registro_pacientes.pack()
-            self.texto_registros = tk.Text(self, width=50, height=10)
+            self.texto_registros = tk.Text(self, width=60, height=12)
             self.texto_registros.pack()
 
 
@@ -134,6 +142,7 @@ class Aplicacion(tk.Tk):
             medicacion = Medicacion(descripcion_medicacion, dosis_medicacion, fecha_hora_medicacion.fecha_hora)
             self.pacientes[nombre_paciente].registrar_medicacion(medicacion)
 
+
             messagebox.showinfo("Éxito", "Medicación registrada con éxito.")
 
         def ver_registros(self):
@@ -178,12 +187,24 @@ class Aplicacion(tk.Tk):
 
         def crear_boton(self, texto, comando):
             boton = tk.Button(self, text=texto, command=comando)
-            boton.config(bg="#008000", fg="#FFFFFF")
+            boton.config(bg="#008000", fg="#FFFFE0")
             boton.pack()
             return boton
 
             self.boton_ingresar_paciente = self.crear_boton("Ingresar paciente", self.ingresar_paciente)
             self.boton_registrar_sintoma = self.crear_boton("Registrar síntoma", self.registrar_sintoma)
+
+
+class AutoFocusEntry(tk.Entry):
+    def __init__(self, master=None, **kwargs):
+        super().__init__(master, **kwargs)
+        self.bind("<Return>", self.next_field)
+
+    def next_field(self, event=None):
+        widgets = self.master.winfo_children()
+        index = widgets.index(self)
+        if index < len(widgets) - 1:
+            widgets[index + 1].focus_set()
 
 
 if __name__ == "__main__":
