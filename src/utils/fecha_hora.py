@@ -8,4 +8,4 @@ class FechaHora:
             raise ValueError("La fecha y hora deben estar en el formato YYYY-MM-DD HH:MM")
 
     def __str__(self):
-        return self.fecha_hora.strftime("%Y-%m-%d %H:%M")
+        return self.fecha_hora.strftime("%Y-%m-%d ")

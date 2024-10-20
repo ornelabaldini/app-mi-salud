@@ -12,16 +12,14 @@ class Paciente:
         self.registros.append(sintoma)
 
 
-
-    def registrar_medicacion(self, descripcion, dosis):
-        medicacion = Medicacion(descripcion, dosis)
+    def registrar_medicacion(self, medicacion):
         self.registros.append(medicacion)
 
 
     def ver_registros(self):
         for registro in self.registros:
             if isinstance(registro, Sintoma):
-                print(f"Síntoma: {registro.descripcion}\nFecha y hora: {registro.fecha_hora}\n")
+                print(f"{registro.descripcion}\nFecha y hora de sintoma : {registro.fecha_hora}\n")
             elif isinstance(registro, Medicacion):
                 print(
                     f"Medicación: {registro.descripcion}\nDosis: {registro.dosis}\nFecha y hora: {registro.fecha_hora}\n")

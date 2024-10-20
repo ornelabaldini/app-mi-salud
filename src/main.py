@@ -76,14 +76,16 @@ class Aplicacion(tk.Tk):
             self.boton_registrar_medicacion = tk.Button(self, text="Registrar medicación",
                                                         command=self.registrar_medicacion)
             self.boton_registrar_medicacion.pack()
+            self.boton_registrar_medicacion.pack(pady=(0,20))
 
-            self.boton_ver_registros = tk.Button(self, text="Ver registros", command=self.ver_registros)
+            self.boton_ver_registros = tk.Button(self, text="Ver registro actual", command=self.ver_registros)
             self.boton_ver_registros.pack()
+
 
             self.boton_ver_registro_pacientes = tk.Button(self, text="Ver registro de pacientes",
                                                           command=self.ver_registro_pacientes)
             self.boton_ver_registro_pacientes.pack()
-            self.texto_registros = tk.Text(self, width=60, height=12)
+            self.texto_registros = tk.Text(self, width=100, height=10.4)
             self.texto_registros.pack()
 
 
@@ -102,7 +104,6 @@ class Aplicacion(tk.Tk):
             self.pacientes[nombre_paciente] = paciente
             messagebox.showinfo("Éxito", "Paciente ingresado con éxito.")
 
-
         def registrar_sintoma(self):
             nombre_paciente = self.entrada_nombre_paciente.get()
             descripcion_sintoma = self.entrada_descripcion_sintoma.get()
@@ -118,9 +119,14 @@ class Aplicacion(tk.Tk):
                 messagebox.showerror("Error", "La fecha y hora deben estar en el formato YYYY-MM-DD HH:MM.")
                 return
 
+            paciente = self.pacientes[nombre_paciente]
+            for registro in paciente.registros:
+                if isinstance(registro, Medicacion) and registro.fecha_hora == fecha_hora_sintoma.fecha_hora:
+                    messagebox.showerror("Error", "La fecha y hora síntoma ya están registradas.")
+                    return
+
             sintoma = Sintoma(descripcion_sintoma, fecha_hora_sintoma.fecha_hora)
             self.pacientes[nombre_paciente].registrar_sintoma(sintoma)
-
             messagebox.showinfo("Éxito", "Síntoma registrado con éxito.")
 
         def registrar_medicacion(self):
@@ -139,14 +145,18 @@ class Aplicacion(tk.Tk):
                 messagebox.showerror("Error", "La fecha y hora deben estar en el formato YYYY-MM-DD HH:MM:SS.")
                 return
 
-            medicacion = Medicacion(descripcion_medicacion, dosis_medicacion, fecha_hora_medicacion.fecha_hora)
-            self.pacientes[nombre_paciente].registrar_medicacion(medicacion)
+            paciente = self.pacientes[nombre_paciente]
+            for registro in paciente.registros:
+                if isinstance(registro, Medicacion) and registro.fecha_hora == fecha_hora_medicacion.fecha_hora:
+                    messagebox.showerror("Error", "La fecha y hora de la medicación ya están registradas.")
+                    return
 
-
+            medicacion = Medicacion(descripcion_medicacion, fecha_hora_medicacion.fecha_hora, dosis_medicacion)
+            paciente.registrar_medicacion(medicacion)
             messagebox.showinfo("Éxito", "Medicación registrada con éxito.")
 
         def ver_registros(self):
-            self.texto_registros.delete(1.0, tk.END)
+            self.texto_registros.delete(5.0, tk.END)
             nombre_paciente = self.entrada_nombre_paciente.get()
             if nombre_paciente not in self.pacientes:
                 messagebox.showerror("Error", "Paciente no encontrado.")
@@ -156,10 +166,10 @@ class Aplicacion(tk.Tk):
             for registro in paciente.registros:
                 if isinstance(registro, Sintoma):
                     self.texto_registros.insert(tk.END,
-                                                f"Síntoma: {registro.descripcion}\nFecha y hora: {registro.fecha_hora}\n\n")
+                                                f"{registro.descripcion}\nFecha y hora del registro: {registro.fecha_hora}\n\n")
                 elif isinstance(registro, Medicacion):
                     self.texto_registros.insert(tk.END,
-                                                f"Medicación: {registro.descripcion}\nDosis: {registro.dosis}\nFecha y hora: {registro.fecha_hora}\n\n")
+                                                f"Medicación: {registro.descripcion}\nDosis: {registro.dosis}\nFecha y hora de medicación: {registro.fecha_hora}\n\n")
 
         def ver_registros_paciente(self):
             nombre_paciente = self.entrada_nombre_paciente.get()
@@ -175,25 +185,15 @@ class Aplicacion(tk.Tk):
             texto_registro_pacientes = tk.Text(ventana_registro)
             texto_registro_pacientes.pack(fill="both", expand=True)
             for paciente in self.pacientes.values():
-                texto_registro_pacientes.insert(tk.END, f"Registro de {paciente.nombre}:\n")
+                texto_registro_pacientes.insert(tk.END, f"REGISTRO DE {paciente.nombre}:\n")
                 paciente.ver_registros()
                 for registro in paciente.registros:
                     if isinstance(registro, Sintoma):
                         texto_registro_pacientes.insert(tk.END,
-                                                        f"Síntoma: {registro.descripcion}\nFecha y hora: {registro.fecha_hora}\n\n")
+                                                        f"Hora de registro: {registro.fecha_hora}\n\n")
                     elif isinstance(registro, Medicacion):
                         texto_registro_pacientes.insert(tk.END,
-                                                        f"Medicación: {registro.descripcion}\nDosis: {registro.dosis}\nFecha y hora: {registro.fecha_hora}\n\n")
-
-        def crear_boton(self, texto, comando):
-            boton = tk.Button(self, text=texto, command=comando)
-            boton.config(bg="#008000", fg="#FFFFE0")
-            boton.pack()
-            return boton
-
-            self.boton_ingresar_paciente = self.crear_boton("Ingresar paciente", self.ingresar_paciente)
-            self.boton_registrar_sintoma = self.crear_boton("Registrar síntoma", self.registrar_sintoma)
-
+                                                        f"Medicación: {registro.descripcion}\nDosis: {registro.dosis}\nFecha y hora de medicación: {registro.fecha_hora}\n\n")
 
 class AutoFocusEntry(tk.Entry):
     def __init__(self, master=None, **kwargs):
