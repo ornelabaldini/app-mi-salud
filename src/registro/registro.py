@@ -9,4 +9,4 @@ class Registro:
             self.fecha_hora = fecha_hora.strftime("%Y-%m-%d %H:%M")
 
     def __str__(self):
-        return f"Registro: {self.descripcion} - Fecha y hora: {self.fecha_hora}"
+        return f"Registro: {self.descripcion} -Fecha y hora: {self.fecha_hora}"

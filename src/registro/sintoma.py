@@ -5,4 +5,4 @@ class Sintoma(Registro):
         super().__init__(descripcion, fecha_hora)
 
     def __str__(self):
-        return f"Síntoma: {self.descripcion} - Fecha y hora de síntoma: {self.fecha_hora}"
+        return f"-Síntoma: {self.descripcion}\n  Fecha y hora de síntoma: {self.fecha_hora}"

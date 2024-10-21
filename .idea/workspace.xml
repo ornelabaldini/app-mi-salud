@@ -7,8 +7,9 @@
     <list default="true" id="47274372-fbe6-49e6-9b6e-e7739719f988" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/paciente/paciente.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/paciente/paciente.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/registro/medicacion.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/registro/medicacion.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/registro/registro.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/registro/registro.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/registro/sintoma.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/registro/sintoma.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +43,9 @@
     "Python.__init__ (1).executor": "Run",
     "Python.__init__.executor": "Run",
     "Python.main.executor": "Run",
+    "Python.paciente.executor": "Run",
     "Python.registro.executor": "Run",
+    "Python.sintoma.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "/home/ornela/PycharmProjects/apuntes/app-mi-salud-main",
@@ -101,5 +104,31 @@
       <updated>1729040723099</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/main.py</url>
+          <line>160</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/main.py</url>
+          <line>162</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/main.py</url>
+          <line>164</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/main.py</url>
+          <line>171</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

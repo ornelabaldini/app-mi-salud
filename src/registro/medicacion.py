@@ -7,4 +7,4 @@ class Medicacion(Registro):
         self.dosis = dosis
 
     def _str_(self):
-        return f"Medicación: {self.descripcion} - Dosis: {self.dosis} - Fecha y hora de medicación: {self.fecha_hora}"
+        return f" - Medicación: {self.descripcion} - Dosis: {self.dosis} - Fecha y hora de medicación: {self.fecha_hora}"

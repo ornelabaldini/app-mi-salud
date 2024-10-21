@@ -6,6 +6,7 @@ from src.registro.medicacion import Medicacion
 from src.utils.fecha_hora import FechaHora
 
 class Aplicacion(tk.Tk):
+        ejecucion = 0
         def __init__(self):
             super().__init__()
             self.title("                      Registro en Mi Salud")
@@ -156,7 +157,7 @@ class Aplicacion(tk.Tk):
             messagebox.showinfo("Éxito", "Medicación registrada con éxito.")
 
         def ver_registros(self):
-            self.texto_registros.delete(5.0, tk.END)
+            self.texto_registros.delete(1.0, tk.END)
             nombre_paciente = self.entrada_nombre_paciente.get()
             if nombre_paciente not in self.pacientes:
                 messagebox.showerror("Error", "Paciente no encontrado.")
@@ -164,13 +165,12 @@ class Aplicacion(tk.Tk):
             paciente = self.pacientes[nombre_paciente]
             self.texto_registros.insert(tk.END, f"Registro de {paciente.nombre}:\n")
             for registro in paciente.registros:
-                if isinstance(registro, Sintoma):
+                 if isinstance(registro, Sintoma):
                     self.texto_registros.insert(tk.END,
-                                                f"{registro.descripcion}\nFecha y hora del registro: {registro.fecha_hora}\n\n")
-                elif isinstance(registro, Medicacion):
+                                                f"Fecha y hora del registro: {registro.fecha_hora}\n {registro.descripcion}\n\n")
+                 elif isinstance(registro, Medicacion):
                     self.texto_registros.insert(tk.END,
-                                                f"Medicación: {registro.descripcion}\nDosis: {registro.dosis}\nFecha y hora de medicación: {registro.fecha_hora}\n\n")
-
+                                                f" -Medicación: {registro.descripcion}\n  Dosis: {registro.dosis}\n  Fecha y hora de medicación: {registro.fecha_hora}\n\n")
         def ver_registros_paciente(self):
             nombre_paciente = self.entrada_nombre_paciente.get()
             if nombre_paciente not in self.pacientes:
@@ -191,9 +191,12 @@ class Aplicacion(tk.Tk):
                     if isinstance(registro, Sintoma):
                         texto_registro_pacientes.insert(tk.END,
                                                         f"Hora de registro: {registro.fecha_hora}\n\n")
-                    elif isinstance(registro, Medicacion):
+                    if isinstance(registro, Medicacion):
                         texto_registro_pacientes.insert(tk.END,
-                                                        f"Medicación: {registro.descripcion}\nDosis: {registro.dosis}\nFecha y hora de medicación: {registro.fecha_hora}\n\n")
+                                                        f"-Medicación: {registro.descripcion}\n Dosis: {registro.dosis}\n Fecha y hora de medicación: {registro.fecha_hora}\n\n")
+                    elif isinstance(registro, Sintoma):
+                        texto_registro_pacientes.insert(tk.END,
+                                                        f"{registro.descripcion}\n")
 
 class AutoFocusEntry(tk.Entry):
     def __init__(self, master=None, **kwargs):
