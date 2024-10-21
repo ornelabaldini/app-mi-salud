@@ -68,7 +68,7 @@ class Aplicacion(tk.Tk):
             self.entrada_dosis_medicacion.bind("<Return>", lambda event: self.entrada_fecha_hora_medicacion.focus_set())
 
             self.etiqueta_fecha_hora_medicacion = tk.Label(self,
-                                                           text="Fecha y hora de la medicación (YYYY-MM-DD HH:MM:SS):")
+                                                           text="Fecha y hora de la medicación (AAAA-MM-DD HH:MM):")
             self.etiqueta_fecha_hora_medicacion.pack()
 
             self.entrada_fecha_hora_medicacion = tk.Entry(self)
@@ -117,7 +117,7 @@ class Aplicacion(tk.Tk):
             try:
                 fecha_hora_sintoma = FechaHora(fecha_hora_sintoma)
             except ValueError:
-                messagebox.showerror("Error", "La fecha y hora deben estar en el formato YYYY-MM-DD HH:MM.")
+                messagebox.showerror("Error", "La fecha y hora deben estar en el formato AAAA-MM-DD HH:MM")
                 return
 
             paciente = self.pacientes[nombre_paciente]
@@ -143,7 +143,7 @@ class Aplicacion(tk.Tk):
             try:
                 fecha_hora_medicacion = FechaHora(fecha_hora_medicacion)
             except ValueError:
-                messagebox.showerror("Error", "La fecha y hora deben estar en el formato YYYY-MM-DD HH:MM:SS.")
+                messagebox.showerror("Error", "La fecha y hora deben estar en el formato YYYY-MM-DD HH:MM")
                 return
 
             paciente = self.pacientes[nombre_paciente]

@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="47274372-fbe6-49e6-9b6e-e7739719f988" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/registro/medicacion.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/registro/medicacion.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/registro/registro.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/registro/registro.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/registro/sintoma.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/registro/sintoma.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,21 +33,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.AutoFocusEntry.executor": "Run",
-    "Python.__init__ (1).executor": "Run",
-    "Python.__init__.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.paciente.executor": "Run",
-    "Python.registro.executor": "Run",
-    "Python.sintoma.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/ornela/PycharmProjects/apuntes/app-mi-salud-main",
-    "settings.editor.selected.configurable": "configurable.group.project"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.AutoFocusEntry.executor&quot;: &quot;Run&quot;,
+    &quot;Python.__init__ (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.__init__.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.paciente.executor&quot;: &quot;Run&quot;,
+    &quot;Python.registro.executor&quot;: &quot;Run&quot;,
+    &quot;Python.sintoma.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/ornela/PycharmProjects/apuntes/app-mi-salud-main&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.project&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/models" />
