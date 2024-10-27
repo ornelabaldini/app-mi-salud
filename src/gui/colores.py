@@ -3,7 +3,6 @@ import customtkinter as ctk
 ctk.set_appearance_mode("dark")  # Modo oscuro
 ctk.set_default_color_theme("blue")  # Tema de colores azul
 
-
 class Colores(ctk.CTk):
     def __init__(self):
         super().__init__()
