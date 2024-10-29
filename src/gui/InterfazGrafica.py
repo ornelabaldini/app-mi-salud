@@ -116,7 +116,7 @@ class InterfazGrafica(ctk.CTk):
             return
         for sintoma in self.pacientes[nombre_paciente].registros:
             if isinstance(sintoma, Sintoma) and sintoma.descripcion == descripcion_sintoma:
-                self.mostrar_mensaje_error("Síntoma repetido.")
+                self.mostrar_mensaje_error("Síntoma ya registrado en esa fecha y hora.")
                 return
         sintoma = Sintoma(descripcion_sintoma, fecha_hora_sintoma)
         self.pacientes[nombre_paciente].registrar_sintoma(sintoma)
