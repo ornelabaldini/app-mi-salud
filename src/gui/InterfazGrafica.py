@@ -215,9 +215,9 @@ class InterfazGrafica(ctk.CTk):
 
             for registro in registros_paciente.registros:
                 if isinstance(registro, Sintoma):
-                    mensaje += f"Síntoma: {registro.descripcion} - Fecha y hora de síntoma: {registro.fecha_hora}\n\n"
+                    mensaje += f"Síntoma: {registro.descripcion} - Fecha y hora de síntoma: {registro.fecha_hora} hrs\n\n"
                 elif isinstance(registro, Medicacion):
-                    mensaje += f"Medicación: {registro.descripcion} - Dosis: {registro.dosis} - Fecha y hora de medicación: {registro.fecha_hora}\n\n"
+                    mensaje += f"Medicación: {registro.descripcion} - Dosis: {registro.dosis} - Fecha y hora de medicación: {registro.fecha_hora} hrs\n\n"
 
             mensaje += "\n"
 
@@ -242,9 +242,9 @@ class InterfazGrafica(ctk.CTk):
 
                 mensaje = f"Registro de {nombre_paciente} ({edad}):\n\n"
                 if ultimo_sintoma:
-                    mensaje += f"Síntoma: {ultimo_sintoma.descripcion} - Fecha y hora de síntoma: {ultimo_sintoma.fecha_hora}\n"
+                    mensaje += f"Síntoma: {ultimo_sintoma.descripcion} - Fecha y hora de síntoma: {ultimo_sintoma.fecha_hora} hrs\n\n"
                 if ultima_medicacion:
-                    mensaje += f"Medicación: {ultima_medicacion.descripcion} - Dosis: {ultima_medicacion.dosis} - Fecha y hora de medicación: {ultima_medicacion.fecha_hora}\n"
+                    mensaje += f"Medicación: {ultima_medicacion.descripcion} - Dosis: {ultima_medicacion.dosis} - Fecha y hora de medicación: {ultima_medicacion.fecha_hora} hrs\n"
 
                 self.mostrar_mensaje_exito(mensaje.strip())
             else:
@@ -262,10 +262,11 @@ class InterfazGrafica(ctk.CTk):
         boton_aceptar = ctk.CTkButton(ventana_mensaje, text="Aceptar", command=ventana_mensaje.destroy, font=("Arial",20))
         boton_aceptar.pack(pady=20, padx=10)
 
+        ventana_mensaje.bind("<Return>", lambda event: boton_aceptar.invoke())
 
     def mostrar_mensaje_error(self, mensaje):
         ventana_mensaje = ctk.CTkToplevel(self)
-        ventana_mensaje.title("Error")
+        ventana_mensaje.title("                        Error")
         etiqueta_mensaje = ctk.CTkLabel(ventana_mensaje, text=mensaje, font=("Arial", 20))
         etiqueta_mensaje.pack(pady=20, padx=10)
 
